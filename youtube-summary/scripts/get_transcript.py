@@ -71,7 +71,9 @@ def via_ytdlp(vid, langs):
     with tempfile.TemporaryDirectory() as d:
         cmd = [sys.executable, "-m", "yt_dlp", "--skip-download", "--write-subs",
                "--write-auto-subs", "--sub-format", "json3",
-               "--sub-langs", ",".join(langs + [l + ".*" for l in langs]),
+               # manual subs in preferred langs, else the original-language auto track;
+               # avoid YouTube's auto-translated tracks (often rate-limited with 429)
+               "--sub-langs", ",".join(langs + [".*-orig"]),
                "--print-to-file", "%(title)s", os.path.join(d, "title.txt"),
                "-o", os.path.join(d, "%(id)s.%(ext)s"),
                f"https://www.youtube.com/watch?v={vid}"]

@@ -19,7 +19,7 @@ python3 <skill-dir>/scripts/get_transcript.py "<URL>" --timestamps
 - `--timestamps` — grupează textul pe blocuri de ~30s cu marcaj `[m:ss]`; folosește-l, ca să poți indica momentele cheie. Fără el iese text continuu (mai compact pentru clipuri foarte lungi).
 - Prima linie e un antet: titlu/ID, limba transcrierii, sursa, link scurt.
 
-Pentru mai multe linkuri, rulează scriptul pentru fiecare.
+Pe Windows, dacă `python3` nu există, folosește `python`. Pentru mai multe linkuri, rulează scriptul pentru fiecare.
 
 **Dacă eșuează:**
 - cod ieșire `2` → clipul nu are subtitrări (nici automate). Spune-i asta utilizatorului direct; nu inventa conținut pe baza titlului.
